@@ -136,7 +136,6 @@ class Advertiser():
 		self.NextAdStop -= Delta
 		CeilDur = math.ceil(Duration)
 		if CeilDur > self.AdStop and self.NextAdStop <= 0 and CeilDur % self.Torchlight().Config["Advertiser"]["AdStop"] == 0:
-			self.Torchlight().SayChat("Hint: Type \x07FF0000!stop\x01 to stop all currently playing sounds.")
 			self.AdStop = CeilDur
 			self.NextAdStop = 0
 		elif CeilDur < self.AdStop:
