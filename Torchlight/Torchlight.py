@@ -51,7 +51,7 @@ class Torchlight():
 		self.GameEvents.HookEx("player_say", self.Event_PlayerSay)
 
 	def SayChat(self, message, player=None):
-		message = "\x0700FFFA[Torchlight]: \x01{0}".format(message)
+		message = " \x10[Torchlight]: \x01{0}".format(message)
 		if len(message) > 976:
 			message = message[:973] + "..."
 		lines = textwrap.wrap(message, 244, break_long_words = True)
@@ -71,7 +71,7 @@ class Torchlight():
 					player.ChatCooldown = self.Master.Loop.time() + cooldown
 
 	def SayPrivate(self, player, message):
-		message = "\x0700FFFA[Torchlight]: \x01{0}".format(message)
+		message = " \x10[Torchlight]: \x01{0}".format(message)
 		if len(message) > 976:
 			message = message[:973] + "..."
 		lines = textwrap.wrap(message, 244, break_long_words = True)
