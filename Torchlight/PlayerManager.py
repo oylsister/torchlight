@@ -3,6 +3,7 @@
 import asyncio
 import logging
 from .Constants import *
+import time
 
 class PlayerManager():
 	def __init__(self, master):
@@ -177,17 +178,18 @@ class PlayerManager():
 			self.Active = True
 
 		async def OnClientPostAdminCheck(self):
+			time.sleep(10)
 			self.Admin._FlagBits = (await self.Torchlight().API.GetUserFlagBits(self.Index))["result"]
 			self.PlayerManager.Logger.info("#{0} \"{1}\"({2}) FlagBits: {3}".format(self.UserID, self.Name, self.UniqueID, self.Admin._FlagBits))
 			if not self.Access:
 				if self.Admin.RCON() or self.Admin.Root():
-					self.Access = dict({"level": self.Torchlight().Config["AccessLevel"]["Root"], "name": "SAdmin"})
+					self.Access = dict({"level": self.Torchlight().Config["AccessLevel"]["Root"], "name": "Root Admin"})
 				elif self.Admin.Ban():
 					self.Access = dict({"level": self.Torchlight().Config["AccessLevel"]["Admin"], "name": "Admin"})
-				elif self.Admin.Generic():
-					self.Access = dict({"level": self.Torchlight().Config["AccessLevel"]["DonatedAdmin"], "name": "DAdmin"})
 				elif self.Admin.Custom1():
 					self.Access = dict({"level": self.Torchlight().Config["AccessLevel"]["VIP"], "name": "VIP"})
+				elif self.Admin.Custom6():
+					self.Access = dict({"level": self.Torchlight().Config["AccessLevel"]["Member"], "name": "Member"})
 
 			if self.PlayerManager.Torchlight().Config["DefaultLevel"]:
 				if self.Access and self.Access["level"] < self.PlayerManager.Torchlight().Config["DefaultLevel"]:
