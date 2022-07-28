@@ -32,10 +32,10 @@
 
 	"AntiSpam":
 	{
-		"ImmunityLevel": 5,
+		"ImmunityLevel": 3,
 		"MaxUsageSpan": 60,
 		"MaxUsageTime": 10,
-		"PunishDelay": 60,
+		"PunishDelay": 20,
 		"StopLevel": 3,
 		"ChatCooldown": 15
 	},
@@ -49,9 +49,9 @@
 	"AccessLevel":
 	{
 		"Root": 6,
-		"Admin": 3,
-		"DonatedAdmin": 2,
-		"VIP": 2
+		"Admin": 4,
+		"VIP": 3,
+		"Member":2
 	},
 
 	"CommandLevel":
@@ -59,10 +59,10 @@
 		"Exec": 100,
 		"Dec": 100,
 		"AccessAdmin": 6,
-		"Enable": 3,
-		"Disable": 3,
-		"Reload": 3,
-		"Stop": 3,
+		"Enable": 6,
+		"Disable": 6,
+		"Reload": 4,
+		"Stop": 4,
 		"Say": 2,
 		"Youtube": 2,
 		"YoutubeSearch": 2,
